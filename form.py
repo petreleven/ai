@@ -47,3 +47,10 @@ class ProductForm(forms.ModelForm):
                 }
             ),
         }
+MEDIA_ROOT = os.path.join(BASE_DIR , "media/")
+MEDIA_URL = "/media/"
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("" ,include("mainapp.urls"))
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT) 
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
