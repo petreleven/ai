@@ -1,0 +1,13 @@
+https://getbootstrap.com/docs/5.0/utilities/position/
+
+
+<div class="row mt-5">
+<section class="col-6">
+yii
+</section>
+<section class="col-6 bg-primary position-relative">
+<img src="https://picsum.photos/200/300" width=160 height="80" class="position-absolute position-absolute top-0 end-0">
+<img src="https://picsum.photos/200/300" width=160 height="160" class="position-absolute top-50 start-0 translate-middle-x">
+
+</section>
+</div>
