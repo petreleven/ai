@@ -1,3 +1,5 @@
 openai ex - https://community.appinventor.mit.edu/t/f-os-artificial-intelligence-and-openai/74469
 apikey - https://platform.openai.com/api-keys
 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
+
+https://drive.google.com/file/d/10HF0hgpHQGicgFyL8DBxFnlVaDntNmIX/view
