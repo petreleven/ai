@@ -1,56 +1,16 @@
-class ProductForm(forms.ModelForm):
+from collections import defaultdict
+class Attendee:
+    def __init__(self,emailsent, eventid):
+        self.emailsent=emailsent
+        self.eventid=eventid
 
-    class Meta:
-        model = Product
 
-        fields = (
-            "name",
-            "image",
-            "price",
-            "description",
-            "available",
-            "category",
-            "date",
-        )
-        widgets = {
-            "name": TextInput(
-                attrs={
-                    "class": "form-control",
-                    "style": "max-width: 300px;",
-                    "placeholder": "Name of product",
-                }
-            ),
-            "image": FileInput(
-                attrs={
-                    "class": "form-control",
-                    "style": "max-width: 300px;",
-                }
-            ),
-            "price": NumberInput(
-                attrs={
-                    "class": "form-control",
-                    "style": "max-width: 300px;",
-                    "placeholder": "Price",
-                }
-            ),
-            "description": TextInput(
-                attrs={
-                    "class": "form-control",
-                    "style": "max-width: 300px;",
-                    "placeholder": "Description",
-                }
-            ),
-            "available": CheckboxInput(
-                attrs={
-                    "class": "form-control",
-                    "style": "max-width: 15px;",
-                }
-            ),
-        }
-MEDIA_ROOT = os.path.join(BASE_DIR , "media/")
-MEDIA_URL = "/media/"
-urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("" ,include("mainapp.urls"))
-] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT) 
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+attendee1 = Attendee(False,1)
+attendee2 = Attendee(False,2)
+attendee3 = Attendee(True,1)
+allattendees = [attendee1, attendee2, attendee3]
+
+filtered_attendees = defaultdict(list)
+for att in allattendees:
+    if att.emailsent == False:
+        filtered_attendees[att.eventid].append(att)
